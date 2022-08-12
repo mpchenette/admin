@@ -15,6 +15,6 @@ provider "azuread" {
 
 resource "azuread_group" "aad_group" {
   display_name     = "example"
-  owners           = "84574441-38cc-4302-be53-903f57446fdb"
+  owners           = ["84574441-38cc-4302-be53-903f57446fdb"]
   security_enabled = true
 }
