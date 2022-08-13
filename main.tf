@@ -1,3 +1,7 @@
+variable "subscription_id" {
+  type = list
+}
+
 terraform {
   required_providers {
     azuread = {
