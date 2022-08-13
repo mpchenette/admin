@@ -1,5 +1,5 @@
-variable "subscription_id" {
-  type = list
+variable "owners_of_administrative_apps" {
+  type = list(string)
 }
 
 terraform {
