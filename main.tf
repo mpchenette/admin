@@ -23,7 +23,7 @@ resource "azuread_group" "aad_aao_group" {
 
 resource "azuread_application" "aad_app" {
   display_name            = "Application Creator"
-  owners                  = [resource.aad_aao_group.object_id]
+  owners                  = [resource.azuread_group.aad_aao_group.object_id]
   prevent_duplicate_names = true
 }
 
