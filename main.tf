@@ -15,7 +15,7 @@ provider "azuread" {
 
 resource "azuread_group" "aad_aao_group" {
   display_name            = "Administrative Applications - Owners"
-  owners                  = ["84574441-38cc-4302-be53-903f57446fdb"]
+  owners                  = var.owners_of_administrative_apps
   prevent_duplicate_names = true
   security_enabled        = true
   visibility              = "Public"
@@ -23,7 +23,7 @@ resource "azuread_group" "aad_aao_group" {
 
 resource "azuread_application" "aad_app" {
   display_name            = "Application Creator"
-  owners                  = [resource.azuread_group.aad_aao_group.object_id]
+  owners                  = var.owners_of_administrative_apps
   prevent_duplicate_names = true
 }
 
