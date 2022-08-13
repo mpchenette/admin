@@ -1,7 +1,10 @@
 terraform {}
 
 provider "azurerm" {
-  use_oidc = true
+  use_oidc  = true
+  client_id = "6f8856bb-855f-462b-8c4c-4bfe34cc4d84"
+  tenant_id = "b3cbb45e-6152-433f-bfe2-ac90a78d1408"
+
   features {}
 }
 
