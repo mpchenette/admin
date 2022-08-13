@@ -10,12 +10,12 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "tfstate" {
-  name     = "tfstate"
+  name     = "rg-terraformstate-shared-001"
   location = "South Central US"
 }
 
 resource "azurerm_storage_account" "tfstate" {
-  name                     = "sttfstate001"
+  name                     = "stterraformstate001"
   resource_group_name      = azurerm_resource_group.tfstate.name
   location                 = azurerm_resource_group.tfstate.location
   account_tier             = "Standard"
