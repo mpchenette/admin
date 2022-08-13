@@ -14,16 +14,16 @@ provider "azuread" {
 }
 
 resource "azuread_group" "aad_aao_group" {
-  display_name     = "Administrative Applications - Owners"
-  owners           = ["84574441-38cc-4302-be53-903f57446fdb"]
+  display_name            = "Administrative Applications - Owners"
+  owners                  = ["84574441-38cc-4302-be53-903f57446fdb"]
   prevent_duplicate_names = true
-  security_enabled = true
-  visibility = "Public"
+  security_enabled        = true
+  visibility              = "Public"
 }
 
 resource "azuread_application" "aad_app" {
-  display_name = "Application Creator"
-  owners = [resource.aad_aao_group.object_id]
+  display_name            = "Application Creator"
+  owners                  = [resource.aad_aao_group.object_id]
   prevent_duplicate_names = true
 }
 
