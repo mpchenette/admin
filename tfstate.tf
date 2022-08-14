@@ -9,10 +9,10 @@ provider "azurerm" {
   features {}
 }
 
-# resource "azurerm_resource_group" "tfstate" {
-#   name     = "rg-terraformstate-shared-001"
-#   location = "South Central US"
-# }
+resource "azurerm_resource_group" "tfstate" {
+  name     = "rg-terraformstate-shared-001"
+  location = "South Central US"
+}
 
 resource "azurerm_storage_account" "tfstate" {
   name                     = "stchenettetfstate001"
