@@ -55,24 +55,24 @@ provider "azurerm" {
   features {}
 }
 
-resource "azurerm_resource_group" "tfstate" {
-  name     = "rg-terraform-prod-001"
-  location = "South Central US"
-}
+# resource "azurerm_resource_group" "tfstate" {
+#   name     = "rg-terraform-prod-001"
+#   location = "South Central US"
+# }
 
-resource "azurerm_storage_account" "tfstate" {
-  name                     = "stterraformprod001"
-  resource_group_name      = azurerm_resource_group.tfstate.name
-  location                 = azurerm_resource_group.tfstate.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-  # allow_blob_public_access = true
-}
+# resource "azurerm_storage_account" "tfstate" {
+#   name                     = "stterraformprod001"
+#   resource_group_name      = azurerm_resource_group.tfstate.name
+#   location                 = azurerm_resource_group.tfstate.location
+#   account_tier             = "Standard"
+#   account_replication_type = "LRS"
+#   # allow_blob_public_access = true
+# }
 
-resource "azurerm_storage_container" "tfstate" {
-  name                  = "tfstate"
-  storage_account_name  = azurerm_storage_account.tfstate.name
-  container_access_type = "blob"
-}
+# resource "azurerm_storage_container" "tfstate" {
+#   name                  = "tfstate"
+#   storage_account_name  = azurerm_storage_account.tfstate.name
+#   container_access_type = "blob"
+# }
 
 # because of https://docs.microsoft.com/en-us/graph/permissions-reference#remarks-5, we will be granting this app Application.ReadWrite.All instead of Directory.ReadWrite.All in order to grant it the lowest needed level of permissions to do its job of creating other applications and service principals
