@@ -14,6 +14,14 @@ terraform {
     }
   }
 
+    backend "azurerm" {
+        resource_group_name  = "rg-terraformstate-shared-001"
+        storage_account_name = "stterraformstate001"
+        container_name       = "tfstate"
+        key                  = "terraform.tfstate"
+    }
+
+
   required_version = ">= 1.1.0"
 }
 
